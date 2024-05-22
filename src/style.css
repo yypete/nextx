@@ -1,3 +1,69 @@
 @import '../node_modules/tailwindcss/base.css';
 @import '../node_modules/tailwindcss/components.css';
 @import '../node_modules/tailwindcss/utilities.css';
+
+.nav-icon {
+    width: 20px; height: 20px;
+}
+.item-box {
+    background-color: #f1f5f9; 
+    border-radius: 0.5rem; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    height: 4rem; 
+}
+
+.item-box:hover {
+    background-color: #cbd5e1; 
+}
+
+.fi-rr-star {
+    transition: transform 0.3s; 
+    transform: perspective(1000px); 
+}
+
+.fi-rr-star:hover {
+    transform: rotate(180deg); 
+}
+
+.nav-tool {
+    height: 2rem; 
+    width: 100%; 
+    padding-left: 0.5rem; 
+}
+
+.nav-tool:focus,
+.nav-tool:hover {
+    background-color: #cbd5e1;
+    border-radius: 0.5rem; 
+}
+
+.btn-tool {
+    position: relative;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.btn-group {
+    border: 1px solid #64748b; 
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.5rem; 
+}
+.btn-tool:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px; /* Adjust this value to position the tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1000;
+  }

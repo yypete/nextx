@@ -4306,6 +4306,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jssha@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.npmjs.org/jssha/-/jssha-3.3.1.tgz"
+  integrity sha512-VCMZj12FCFMQYcFLPRm/0lOBbLi8uM2BhXPTqw3U4YAfs4AZfiApOoBLoN8cQE60Z50m1MYMTQVCfgF/KaCVhQ==
+
 keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.npmmirror.com/keyv/-/keyv-4.5.4.tgz"
