@@ -156,7 +156,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { generateRouterLink } from '../utils/generateRouterLink';
+import { generateRouterLink } from '@/utils/generateRouterLink';
 
 export default defineComponent({
   name: "turn-time",

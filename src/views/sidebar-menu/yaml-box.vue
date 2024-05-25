@@ -165,7 +165,7 @@
   </div>
 </template>
 <script lang="ts">
-import {generateRouterLink} from '../utils/generateRouterLink'
+import {generateRouterLink} from '@/utils/generateRouterLink'
 import { ref } from 'vue';
 
 export default {

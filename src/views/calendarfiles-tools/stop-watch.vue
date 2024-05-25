@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import { generateRouterLink } from '../utils/generateRouterLink';
+import { generateRouterLink } from '@/utils/generateRouterLink';
 
 export default {
   name: "stop-watch",
