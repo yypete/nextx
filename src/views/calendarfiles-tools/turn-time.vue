@@ -67,37 +67,37 @@
           <!-- nav-head-content -->
           <div class="w-full px-2 py-2 text-sm text-slate-600">
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[0]" class="nav-tool">Cron表达式</router-link>
+              <router-link to="" class="nav-tool">Cron表达式</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[1]" class="nav-tool">现在/日期/时间戳</router-link>
+              <router-link to="" class="nav-tool">现在/日期/时间戳</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[2]" class="nav-tool">时:分秒转秒工具</router-link>
+              <router-link to="" class="nav-tool">时:分秒转秒工具</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[3]" class="nav-tool">时间戳转换器</router-link>
+              <router-link to="" class="nav-tool">时间戳转换器</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[4]" class="nav-tool">随机时间生成器</router-link>
+              <router-link to="" class="nav-tool">随机时间生成器</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[5]" class="nav-tool">倒计时</router-link>
+              <router-link to="" class="nav-tool">倒计时</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[6]" class="nav-tool">秒转时:分:秒</router-link>
+              <router-link to="" class="nav-tool">秒转时:分:秒</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[7]" class="nav-tool">秒表</router-link>
+              <router-link to="" class="nav-tool">秒表</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[8]" class="nav-tool">时区转换器</router-link>
+              <router-link to="" class="nav-tool">时区转换器</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[9]" class="nav-tool">Mongo 对象时间</router-link>
+              <router-link to="" class="nav-tool">Mongo 对象时间</router-link>
             </div>
             <div class="w-full flex items-center">
-              <router-link :to="routesPath[10]" class="nav-tool">时间差计算器</router-link>
+              <router-link to="" class="nav-tool">时间差计算器</router-link>
             </div>
           </div>
         </div>
@@ -156,7 +156,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { generateRouterLink } from '@/utils/generateRouterLink';
 
 export default defineComponent({
   name: "turn-time",
@@ -174,32 +173,6 @@ export default defineComponent({
       this.timeInput = `${hours}:${minutes}:${seconds}`;
     },
   },
-  setup () {
-  const tableData=[
-      [
-        "Cron表达式",
-        "现在/日期/时间戳",
-        "时:分秒转秒工具"],
-      [
-        "时间戳转换器",
-        "随机时间生成器",
-        "倒计时"],
-      [
-        "秒转时:分:秒",
-        "秒表",
-        "时区转换器"],
-      [
-        "Mongo 对象时间",
-        "时间差计算器",]
-    ]
 
-      const generateLink = (item:string) => {
-      return generateRouterLink(item); // 使用 item.value 获取 ref 的值
-    };
-  const routesPath = tableData.flatMap(row =>row.map(item => generateLink(item)))
-  return {
-    routesPath
-  }
-  }
 });
 </script>

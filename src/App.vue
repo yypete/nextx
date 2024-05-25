@@ -3,11 +3,9 @@
     <!-- nav-section -->
     <HeaderNav />
     <!--router-view -->
-    <div class="w-full flex justify-center items-center bg-slate-100 h-screen">
-      <div class="h-screen bg-slate-100 w-1/2">
-        <div class="flex justify-between h-[80%]">
-          <router-view />
-        </div>
+    <div class="w-full flex justify-center items-center bg-slate-100">
+      <div class="w-1/2 h-screen">
+        <router-view />
       </div>
     </div>
   </div>

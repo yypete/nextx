@@ -15,11 +15,9 @@
     </div>
     <!-- 右侧收藏文件夹 -->
     <div
-      class="h-[70%] bg-white w-[80%] translate-x-3 rounded-lg border bordered-slate-400 flex items-center justify-center"
+      class="bg-white w-[80%] h-2/3 translate-x-3 rounded-lg border bordered-slate-400 flex items-center justify-center"
     >
-      <i
-        class="fi fi-ss-followcollection text-6xl -translate-y-20 translate-x-52"
-      ></i>
+      <i class="fi fi-ss-followcollection text-6xl"></i>
       <div class="text-4xl text-slate-500">收藏的工具将会显示在这里</div>
     </div>
   </div>
