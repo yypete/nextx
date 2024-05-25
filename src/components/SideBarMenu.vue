@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-between w-full -translate-x-48">
     <!-- sidebar-menu -->
-    <div
+    <aside
       class="sidebar-menu bg-white w-40 h-[70%] py-2 rounded-lg translate-x-72"
     >
-      <router-link to="/json-box" class="menu-item">
+      <router-link to="/side-bar/json-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -16,7 +16,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/yaml-box" class="menu-item">
+      <router-link to="/side-bar/yaml-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -28,7 +28,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/ai-box" class="menu-item">
+      <router-link to="/side-bar/ai-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -40,7 +40,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/text-box" class="menu-item">
+      <router-link to="/side-bar/text-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -52,7 +52,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/pic-box" class="menu-item">
+      <router-link to="/side-bar/pic-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -64,7 +64,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/color-box" class="menu-item">
+      <router-link to="/side-bar/color-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -76,7 +76,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/program-box" class="menu-item">
+      <router-link to="/side-bar/program-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -88,7 +88,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/decrypt-box" class="menu-item">
+      <router-link to="/side-bar/decrypt-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -100,7 +100,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/internet-box" class="menu-item">
+      <router-link to="/side-bar/internet-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -112,7 +112,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/web-box" class="menu-item">
+      <router-link to="/side-bar/web-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -124,7 +124,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/math-box" class="menu-item">
+      <router-link to="/side-bar/math-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -136,7 +136,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/media-box" class="menu-item">
+      <router-link to="/side-bar/media-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -148,7 +148,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/calendar-box" class="menu-item">
+      <router-link to="/side-bar/calendar-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -160,7 +160,7 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-      <router-link to="/other-box" class="menu-item">
+      <router-link to="/side-bar/other-box" class="menu-item">
         <a
           href="#"
           class="menu-link flex items-center justify-between px-3 py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg"
@@ -172,10 +172,10 @@
           <i class="arrow-icon fi fi-ss-angle-small-right"></i>
         </a>
       </router-link>
-    </div>
-    <div class="w-full translate-x-80">
+    </aside>
+    <main class="w-full translate-x-80">
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 <script lang="ts">

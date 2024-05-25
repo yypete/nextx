@@ -1,5 +1,5 @@
 <template>
-  <div class="header-container bg-slate-100 relative">
+  <header class="header-container bg-slate-100 relative">
     <!-- 顶部搜索栏 -->
     <nav
       class="search-nav flex items-center justify-center px-3 py-4 h-20 relative space-x-6 bg-white"
@@ -117,7 +117,7 @@
         </div>
       </nav>
     </div>
-  </div>
+  </header>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

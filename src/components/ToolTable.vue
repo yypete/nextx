@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-lg px-3 w-[80%]">
+  <main class="bg-white rounded-lg px-3 w-[80%]">
     <table class="table w-full my-4">
       <tr
         class="w-full flex text-center space-x-1 items-center py-2"
@@ -41,7 +41,7 @@
         </td>
       </tr>
     </table>
-  </div>
+  </main>
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
