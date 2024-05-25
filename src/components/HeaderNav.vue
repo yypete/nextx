@@ -52,7 +52,7 @@
           class="left-nav flex items-center px-3 py-4 space-x-6 translate-x-80"
         >
           <!-- 分类按钮 -->
-          <router-link to="/json-box">
+          <router-link to="/side-bar">
             <button
               @click="setActiveButton('tool-box')"
               :class="{
