@@ -59,6 +59,7 @@ export default defineComponent({
       required: true,
     },
   },
+
   computed: {
     // 将 tableData 切割成每组三个项
     chunksData(): TableType[][] {

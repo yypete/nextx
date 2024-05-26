@@ -12,6 +12,6 @@
 
 <script>
 export default {
-    name: "my-tools",
+    name: "MyTools",
     };
 </script>
