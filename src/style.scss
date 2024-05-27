@@ -1,7 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@mixin on-event($self: false) {
+  @if $self {
+    &:hover {
+      @content;
+    }
+  } @else {
+    &:hover {
+      @content;
+    }
+
+    &:focus {
+      @content;
+    }
+  }
+}
 
 .nav-icon {
   width: 20px;
@@ -15,37 +27,30 @@
   align-items: center;
   justify-content: space-between;
   height: 4rem;
-}
-.item-box:hover {
-  background-color: #cbd5e1;
-}
-.item-box:focus {
-  background-color: #cbd5e1;
+
+  @include on-event {
+    background-color: #cbd5e1;
+  }
 }
 
 .fi-rr-star {
   transition: transform 0.3s;
   transform: perspective(1000px);
-}
-.fi-rr-star:hover {
-  transform: rotate(180deg);
-}
-.fi-rr-star:focus {
-  transform: rotate(180deg);
+
+  @include on-event {
+    transform: rotate(180deg);
+  }
 }
 
 .nav-tool {
   height: 2rem;
   width: 100%;
   padding-left: 0.5rem;
-}
-.nav-tool:hover {
-  background-color: #cbd5e1;
-  border-radius: 0.5rem;
-}
-.nav-tool:focus {
-  background-color: #cbd5e1;
-  border-radius: 0.5rem;
+
+  @include on-event {
+    background-color: #cbd5e1;
+    border-radius: 0.5rem;
+  }
 }
 
 .btn-tool {
@@ -56,19 +61,20 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-}
-.btn-tool:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: black;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-  z-index: 1000;
+
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1000;
+  }
 }
 
 .btn-group {
@@ -85,10 +91,9 @@
   align-items: center;
   padding-left: 0.25rem;
   gap: 0.5rem;
-}
-.category-btn:hover {
-  color: #9ca3af;
-  padding-left: 0.25rem;
-}
 
-
+  &:hover {
+    color: #9ca3af;
+    padding-left: 0.25rem;
+  }
+}

@@ -16,13 +16,13 @@ export default {
   },
   setup() {
     const tableData = [
-    { name: "颜色生成器", path: "/color-generator" },
-    { name: "颜色提取器", path: "/color-extractor" },
-    { name: "颜色选择器", path: "/color-picker" },
-    { name: "颜色转换器", path: "/color-converter" },
-    { name: "颜色对比检查器", path: "/color-contrast-checker" },
-    { name: " ", path: "" },
-];
+      { name: "颜色生成器", path: "/color-generator" },
+      { name: "颜色提取器", path: "/color-extractor" },
+      { name: "颜色选择器", path: "/color-picker" },
+      { name: "颜色转换器", path: "/color-converter" },
+      { name: "颜色对比检查器", path: "/color-contrast-checker" },
+      { name: " ", path: "" },
+    ];
     return { tableData };
   },
 };

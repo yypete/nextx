@@ -16,10 +16,18 @@ import textBox from "@/views/tools-box/text-box.vue";
 import webBox from "@/views/tools-box/web-box.vue";
 import yamlBox from "@/views/tools-box/yaml-box.vue";
 import aiBox from "@/views/tools-box/ai-box.vue";
+import collectTools from "@/pages/nav-tools/collect-tools.vue";
+import myTools from "@/pages/nav-tools/my-tools.vue";
 
-
+// Dynamic routing configuration
 const routes: RouteRecordRaw[] = [];
-const calendarPages = require.context("@/pages/calendar-tools/", true, /\/[a-zA-Z0-9-]+\.vue$/);
+
+// calendar routing configuration
+const calendarPages = require.context(
+  "@/pages/calendar-tools/",
+  true,
+  /\/[a-zA-Z0-9-]+\.vue$/
+);
 calendarPages.keys().forEach((fileName) => {
   const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
   routes.push({
@@ -27,7 +35,13 @@ calendarPages.keys().forEach((fileName) => {
     component: () => import(`@/pages/calendar-tools/${pagesPath}.vue`),
   });
 });
-const decryptPages = require.context("@/pages/decrypt-tools/", true, /\/[a-zA-Z0-9-]+\.vue$/);
+
+// decrypt routing configuration
+const decryptPages = require.context(
+  "@/pages/decrypt-tools/",
+  true,
+  /\/[a-zA-Z0-9-]+\.vue$/
+);
 decryptPages.keys().forEach((fileName) => {
   const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
   routes.push({
@@ -36,28 +50,30 @@ decryptPages.keys().forEach((fileName) => {
   });
 });
 
-console.log(routes)
-
-routes.push({
-  path: "/side-bar",
-  component: SideBarMenu,
-  children: [
-    { path: "json-box", component: jsonBox },
-    { path: "calendar-box", component: calendarBox },
-    { path: "color-box", component: colorBox },
-    { path: "decrypt-box", component: decryptBox },
-    { path: "internet-box", component: internetBox },
-    { path: "math-box", component: mathBox },
-    { path: "media-box", component: mediaBox },
-    { path: "other-box", component: otherBox },
-    { path: "pic-box", component: picBox },
-    { path: "program-box", component: programBox },
-    { path: "text-box", component: textBox },
-    { path: "web-box", component: webBox },
-    { path: "yaml-box", component: yamlBox },
-    { path: "ai-box", component: aiBox },
-  ],
-});
+routes.push(
+  {
+    path: "/side-bar",
+    component: SideBarMenu,
+    children: [
+      { path: "json-box", component: jsonBox },
+      { path: "calendar-box", component: calendarBox },
+      { path: "color-box", component: colorBox },
+      { path: "decrypt-box", component: decryptBox },
+      { path: "internet-box", component: internetBox },
+      { path: "math-box", component: mathBox },
+      { path: "media-box", component: mediaBox },
+      { path: "other-box", component: otherBox },
+      { path: "pic-box", component: picBox },
+      { path: "program-box", component: programBox },
+      { path: "text-box", component: textBox },
+      { path: "web-box", component: webBox },
+      { path: "yaml-box", component: yamlBox },
+      { path: "ai-box", component: aiBox },
+    ],
+  },
+  { path: "/collect-tools", component: collectTools },
+  { path: "/my-tools", component: myTools }
+);
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: routes,

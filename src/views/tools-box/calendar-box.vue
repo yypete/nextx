@@ -16,19 +16,19 @@ export default {
   },
   setup() {
     const tableData = [
-    { name: "Cron表达式", path: "/cron-expression" },
-    { name: "现在/日期/时间戳", path: "/current-date-time-timestamp" },
-    { name: "时:分秒转秒工具", path: "/hms-to-seconds-converter" },
-    { name: "时间戳转换器", path: "/timestamp-converter" },
-    { name: "随机时间生成器", path: "/random-time-generator" },
-    { name: "倒计时", path: "/countdown-timer" },
-    { name: "秒转时:分:秒", path: "/seconds-to-hms" },
-    { name: "秒表", path: "/stopwatch" },
-    { name: "时区转换器", path: "/timezone-converter" },
-    { name: "Mongo 对象时间", path: "/mongo-object-time" },
-    { name: "时间差计算器", path: "/time-difference-calculator" },
-    { name: "UTC时间转时间戳", path: "/utc-time-to-timestamp" }
-];
+      { name: "Cron表达式", path: "/cron-expression" },
+      { name: "现在/日期/时间戳", path: "/current-date-time-timestamp" },
+      { name: "时:分秒转秒工具", path: "/hms-to-seconds-converter" },
+      { name: "时间戳转换器", path: "/timestamp-converter" },
+      { name: "随机时间生成器", path: "/random-time-generator" },
+      { name: "倒计时", path: "/countdown-timer" },
+      { name: "秒转时:分:秒", path: "/seconds-to-hms" },
+      { name: "秒表", path: "/stopwatch" },
+      { name: "时区转换器", path: "/timezone-converter" },
+      { name: "Mongo 对象时间", path: "/mongo-object-time" },
+      { name: "时间差计算器", path: "/time-difference-calculator" },
+      { name: "UTC时间转时间戳", path: "/utc-time-to-timestamp" },
+    ];
     return { tableData };
   },
 };
