@@ -18,61 +18,49 @@ import yamlBox from "@/views/tools-box/yaml-box.vue";
 import aiBox from "@/views/tools-box/ai-box.vue";
 
 
-const tableData = [
-  { name: "Cron表达式", path: "/cron-expression" },
-  { name: "现在/日期/时间戳", path: "/current-date-time-timestamp" },
-  { name: "时:分秒转秒工具", path: "/hms-to-seconds-converter" },
-  { name: "时间戳转换器", path: "/timestamp-converter" },
-  { name: "随机时间生成器", path: "/random-time-generator" },
-  { name: "倒计时", path: "/countdown-timer" },
-  { name: "秒转时:分:秒", path: "/seconds-to-hms" },
-  { name: "秒表", path: "/stopwatch" },
-  { name: "时区转换器", path: "/timezone-converter" },
-  { name: "Mongo 对象时间", path: "/mongo-object-time" },
-  { name: "时间差计算器", path: "/time-difference-calculator" },
-  { name: "UTC时间转时间戳", path: "/utc-time-to-timestamp" }
-];
+const routes: RouteRecordRaw[] = [];
+const calendarPages = require.context("@/pages/calendar-tools/", true, /\/[a-zA-Z0-9-]+\.vue$/);
+calendarPages.keys().forEach((fileName) => {
+  const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
+  routes.push({
+    path: `/${pagesPath}`,
+    component: () => import(`@/pages/calendar-tools/${pagesPath}.vue`),
+  });
+});
+const decryptPages = require.context("@/pages/decrypt-tools/", true, /\/[a-zA-Z0-9-]+\.vue$/);
+decryptPages.keys().forEach((fileName) => {
+  const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
+  routes.push({
+    path: `/${pagesPath}`,
+    component: () => import(`@/pages/decrypt-tools/${pagesPath}.vue`),
+  });
+});
 
+console.log(routes)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const route: RouteRecordRaw[] = [
-  {
-    path: "/side-bar",
-    component: SideBarMenu,
-    children: [
-      { path: "json-box", component: jsonBox },
-      { path: "calendar-box", component: calendarBox },
-      { path: "color-box", component: colorBox },
-      { path: "decrypt-box", component: decryptBox,},
-      { path: "internet-box", component: internetBox },
-      { path: "math-box", component: mathBox },
-      { path: "media-box", component: mediaBox },
-      { path: "other-box", component: otherBox },
-      { path: "pic-box", component: picBox },
-      { path: "program-box", component: programBox },
-      { path: "text-box", component: textBox },
-      { path: "web-box", component: webBox },
-      { path: "yaml-box", component: yamlBox },
-      { path: "ai-box", component: aiBox },
-    ],
-  },
-];
-
+routes.push({
+  path: "/side-bar",
+  component: SideBarMenu,
+  children: [
+    { path: "json-box", component: jsonBox },
+    { path: "calendar-box", component: calendarBox },
+    { path: "color-box", component: colorBox },
+    { path: "decrypt-box", component: decryptBox },
+    { path: "internet-box", component: internetBox },
+    { path: "math-box", component: mathBox },
+    { path: "media-box", component: mediaBox },
+    { path: "other-box", component: otherBox },
+    { path: "pic-box", component: picBox },
+    { path: "program-box", component: programBox },
+    { path: "text-box", component: textBox },
+    { path: "web-box", component: webBox },
+    { path: "yaml-box", component: yamlBox },
+    { path: "ai-box", component: aiBox },
+  ],
+});
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes: route,
+  routes: routes,
 });
 
 export default router;
