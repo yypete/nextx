@@ -69,9 +69,9 @@
   </div>
 </template>
 <script lang="ts">
-import SecondarySideBarMenu from "@/components/SecondarySideBarMenu.vue";
+import SecondarySideBarMenu from "@/components/secondary-sidebar.vue";
 import { defineComponent } from "vue";
-import SecondaryPageTitleVue from "@/components/SecondaryPageTitle.vue";
+import SecondaryPageTitleVue from "@/components/secondary-header.vue";
 
 export default defineComponent({
   name: "TurnSecond",

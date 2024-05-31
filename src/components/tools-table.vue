@@ -1,15 +1,15 @@
 <template>
-  <main class="bg-white rounded-lg px-3 w-[80%]">
-    <table class="table w-full my-4">
+  <main class="bg-white rounded-lg px-4 w-full py-4">
+    <table class="table w-full">
       <tr
-        class="w-full flex text-center space-x-1 items-center py-2"
+        class="w-full flex text-center space-x-1 items-center h-14"
         v-for="(item, itemIndex) in chunksData"
         :key="itemIndex"
       >
-        <td class="w-1/3 h-14">
+        <td class="w-1/3">
           <router-link :to="item[0].path">
             <a href="#" class="item-box">
-              <div class="text-slate-600 text-md pl-2">{{ item[0].name }}</div>
+              <div class="text-slate-600 text-sm pl-2">{{ item[0].name }}</div>
               <div class="flex items-center space-x-1 pr-2">
                 <i class="fi fi-rr-star"></i>
                 <i class="fi fi-rr-menu-dots"></i>
@@ -17,10 +17,10 @@
             </a>
           </router-link>
         </td>
-        <td class="w-1/3 h-14">
+        <td class="w-1/3">
           <router-link :to="item[1].path">
             <a href="#" class="item-box">
-              <div class="text-slate-600 text-md pl-2">{{ item[1].name }}</div>
+              <div class="text-slate-600 text-sm pl-2">{{ item[1].name }}</div>
               <div class="flex items-center space-x-1 pr-2">
                 <i class="fi fi-rr-star"></i>
                 <i class="fi fi-rr-menu-dots"></i>
@@ -28,10 +28,10 @@
             </a>
           </router-link>
         </td>
-        <td class="w-1/3 h-14">
+        <td class="w-1/3">
           <router-link :to="item[2].path">
             <a href="#" class="item-box">
-              <div class="text-slate-600 text-md pl-2">{{ item[2].name }}</div>
+              <div class="text-slate-600 text-sm pl-2">{{ item[2].name }}</div>
               <div class="flex items-center space-x-1 pr-2">
                 <i class="fi fi-rr-star"></i>
                 <i class="fi fi-rr-menu-dots"></i>

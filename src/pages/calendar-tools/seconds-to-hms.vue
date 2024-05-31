@@ -71,8 +71,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import SecondarySideBarMenu from "@/components/SecondarySideBarMenu.vue";
-import SecondaryPageTitleVue from "@/components/SecondaryPageTitle.vue";
+import SecondarySideBarMenu from "@/components/secondary-sidebar.vue";
+import SecondaryPageTitleVue from "@/components/secondary-header.vue";
 export default defineComponent({
   name: "turn-time",
   components: {

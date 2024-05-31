@@ -1,21 +1,15 @@
 <template>
-  <div>
-    <!-- nav-section -->
-    <header><HeaderNav /></header>
-    <!--router-view -->
-    <aside class=" w-full flex items-center bg-slate-100 justify-center">
-      <div class="h-screen w-1/2">
-        <router-view />
-      </div>
-    </aside>
+  <div class="container">
+    <defaultLayout />
   </div>
 </template>
 <script lang="ts">
-import HeaderNav from "@/components/HeaderNav.vue";
+import defaultLayout from "./layouts/default-layout.vue";
+
 export default {
-  name: "HomeApp",
+  name: "homeApp",
   components: {
-    HeaderNav,
+    defaultLayout,
   },
 };
 </script>
