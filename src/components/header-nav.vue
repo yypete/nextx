@@ -2,14 +2,15 @@
   <header class="header-container bg-slate-100 relative w-full">
     <!-- 顶部搜索栏 -->
     <nav
-      class="search-nav flex items-center justify-center px-3 py-4 h-24 relative space-x-6 bg-white"
+      class="search-nav flex items-center justify-center px-3 py-4 h-24 relative space-x-6 bg-white z-50"
+      :class="{ 'bg-slate-300': bgChange }"
     >
       <!-- logo图标 -->
       <a href="/">
         <img
           src="@/assets/logo.png"
           alt="logo"
-          class="logo-icon h-12 w-18 absolute -translate-x-16 -translate-y-6"
+          class="logo-icon h-12 w-18 absolute left-[24%] top-7"
         />
       </a>
       <!-- 输入框 -->
@@ -17,38 +18,60 @@
         type="text"
         class="search-input bg-slate-200 w-[45%] h-14 rounded-lg border border-gray-200 placeholder:text-gray-400 text-lg"
         placeholder="          输入关键字或自然语音进行搜索..."
+        @click="inputFocused"
+        v-show="!bgChange"
       />
       <!-- 放大镜 -->
       <i
-        class="search-icon fi fi-br-search absolute right-3/4 bottom-7 text-2xl text-gray-500"
+        class="search-icon fi fi-br-search absolute right-[70%] bottom-7 text-2xl text-gray-500"
+        v-show="!bgChange"
       ></i>
       <!-- 快捷键提示 -->
       <div
         class="shortcut-hint text-slate-400 absolute left-[60%] translate-x-20"
+        v-show="!bgChange"
       >
         Ctrl+K
       </div>
+      <hoverSearch
+        v-if="bgChange"
+        class="absolute top-14 right-[28%] search-input"
+      ></hoverSearch>
       <!-- 下载App按钮 -->
       <a href="https://he3app.com/">
         <button
-          class="download-app-btn bg-slate-200 rounded-xl h-14 w-32 text-slate-800 translate-x-20 text-lg"
+          class="download-app-btn bg-slate-200 rounded-xl h-14 w-32 text-slate-800 text-lg absolute top-5"
+          v-show="!bgChange"
         >
           下载App
         </button>
       </a>
       <!-- 用户头像 -->
-      <a href="" class="user-avatar translate-x-24">
-        <img src="@/assets/head.png" class="w-14 h-14 rounded-full" />
-        <!-- 免费标志 -->
-        <img
-          src="@/assets/free.png"
-          class="free-badge w-10 h-6 absolute top-10 translate-x-3"
-        />
-      </a>
+      <div class="absolute right-96">
+        <a
+          href="#"
+          class="relative"
+          @mouseover="showHoverAccount = true"
+          @mouseleave="showHoverAccount = false"
+        >
+          <img src="@/assets/head.png" class="w-14 h-14 rounded-full" />
+          <!-- 免费标志 -->
+          <img
+            src="@/assets/free.png"
+            class="free-badge w-10 h-6 absolute top-10 translate-x-3"
+          />
+          <!-- 下拉菜单 -->
+
+          <hoverAccount
+            v-if="showHoverAccount"
+            class="absolute top-full"
+          ></hoverAccount>
+        </a>
+      </div>
     </nav>
     <!-- 顶部导航栏 -->
     <nav
-      class="top-nav flex items-center px-3 py-4 h-20 w-full bg-slate-100 justify-between relative"
+      class="top-nav flex items-center px-3 py-4 h-20 w-full bg-slate-100 justify-between relative z-40"
     >
       <!-- 左侧导航部分 -->
       <div
@@ -73,13 +96,13 @@
         </router-link>
         <hoverCategory
           v-show="showHoverCategory"
-          class="absolute top-14 right-68 z-50"
+          class="absolute top-16 right-92 -translate-x-10 translate-y-2 z-100"
           @mouseover="showHoverCategory = true"
           @mouseleave="showHoverCategory = false"
           :showHoverCategory="showHoverCategory"
         ></hoverCategory>
         <!-- 收藏按钮 -->
-        <router-link to="/home/star">
+        <router-link to="/home/star" class="relative">
           <button
             @click="setActiveButton('collect-tools')"
             :class="{
@@ -87,11 +110,20 @@
                 activeButton === 'collect-tools',
             }"
             class="favorite-btn text-slate-800 w-28 h-14 flex items-center px-1 space-x-2 hover:text-gray-400 pl-2"
+            @mouseover="showHoverStar = true"
+            @mouseleave="showHoverStar = false"
           >
             <div><img src="@/assets/star.png" class="nav-icon" /></div>
             <div class="text-lg">收藏</div>
             <i class="fi fi-rr-angle-small-down translate-y-0.5"></i>
           </button>
+          <hoverStar
+            v-show="showHoverStar"
+            class="absolute"
+            @mouseover="showHoverStar = true"
+            @mouseleave="showHoverStar = false"
+          >
+          </hoverStar>
         </router-link>
         <!-- 我的工具按钮 -->
         <router-link to="/home/myTool">
@@ -135,19 +167,45 @@ import { ref } from "vue";
 import { defineComponent } from "vue";
 import { useActiveButton } from "@/utils/activeButton";
 import hoverCategory from "./hover-category.vue";
+import hoverAccount from "./hover-account.vue";
+import hoverStar from "./hover-star.vue";
+import hoverSearch from "./hover-search.vue";
 
 export default defineComponent({
   name: "HeaderNav",
   components: {
     hoverCategory,
+    hoverAccount,
+    hoverStar,
+    hoverSearch,
   },
   setup() {
     const { activeButton, setActiveButton } = useActiveButton();
     const showHoverCategory = ref(false);
+    const showHoverAccount = ref(false);
+    const showHoverStar = ref(false);
+    const bgChange = ref(false);
+    function inputFocused() {
+      bgChange.value = true;
+    }
+    function outFocused() {
+      bgChange.value = false;
+    }
+    window.addEventListener("click", (event) => {
+      const target = event.target as Element;
+      if (!target.closest(".search-input") && !target.closest(".hoverSearch")) {
+        bgChange.value = false;
+      }
+    });
     return {
       activeButton,
       setActiveButton,
       showHoverCategory,
+      showHoverAccount,
+      showHoverStar,
+      inputFocused,
+      bgChange,
+      outFocused,
     };
   },
 });

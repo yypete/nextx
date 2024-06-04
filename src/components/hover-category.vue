@@ -1,22 +1,24 @@
 <template>
   <main class="flex">
-    <div class="w-48 h-48 bg-white border border-gray-400 overflow-y-scroll">
+    <div
+      class="w-48 h-96 bg-white border border-gray-200 overflow-y-scroll shadow-2xl text-gray-600"
+    >
       <!-- 工具类别按钮 -->
       <div
         v-for="(category, index) in categories"
         :key="index"
         class="hover-btn"
         @mouseover="selectTools(category, true)"
-        @mouseleave="selectTools(category, false)"
       >
         {{ category }}
       </div>
     </div>
     <div
-      class="w-96 h-48 bg-white border border-gray-400 overflow-y-scroll"
-      v-show="isHovered || showHoverCategory "
+      class="w-96 h-96 bg-white border border-gray-200 overflow-y-scroll shadow-2xl text-gray-600"
+      @mouseleave="fadeItem(false)"
+      v-show="isHovered"
     >
-      <div class="border-b-2 border-b-gray-200 pl-10 text-xl">
+      <div class="border-b-2 border-b-gray-200 pl-10 text-md py-1">
         {{ titleData }}
       </div>
       <div class="w-full">
@@ -24,7 +26,7 @@
           <div
             v-for="(item, itemIndex) in tableData"
             :key="itemIndex"
-            class="w-full md:w-1/2 p-2 box-border"
+            class="w-full md:w-1/2 p-3 box-border text-sm text-gray-400"
           >
             <router-link :to="item.path">
               {{ item.name }}
@@ -511,6 +513,13 @@ export default {
       tableData.value = data || [];
       titleData.value = toolName;
     }
+    function fadeItem(isEnter=true){
+      if (isEnter) {
+        isHovered.value = true;
+      } else {
+        isHovered.value = false;
+      }
+    }
     return {
       tableData,
       webData,
@@ -519,6 +528,7 @@ export default {
       dataMap,
       titleData,
       isHovered,
+      fadeItem
     };
   },
 };

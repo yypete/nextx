@@ -2,10 +2,10 @@
 <template>
   <div>
     <header>
-      <headerNav />
+      <headerNav class="z-50"></headerNav>
     </header>
     <main>
-      <router-view ></router-view>
+      <router-view class="z-40"></router-view>
     </main>
   </div>
 </template>
