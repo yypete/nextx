@@ -1,9 +1,9 @@
 <template>
-  <div class="h-full w-full ml-24">
+  <div class="h-screen w-full ml-24 relative container bg-slate-100">
     <!-- page-title-->
     <div class="bg-slate-100 flex items-center justify-between pb-4">
       <!-- left-title -->
-      <div class="flex space-x-4">
+      <div class="flex space-x-4 absolute left-[25%] top-6">
         <div class="text-4xl text-slate-900">Ripemd160哈希</div>
         <i
           class="fi fi-rr-star hover:rotate-180 transition-transform transform-gpu text-2xl translate-y-2"
@@ -11,7 +11,7 @@
         <i class="fi fi-sr-comment text-2xl translate-y-2"></i>
       </div>
       <!-- right-title-->
-      <div class="flex space-x-3 mt-3">
+      <div class="flex space-x-3 mt-3 absolute right-[25%] top-6">
         <img src="@/assets/logo.png" class="w-10 h-6 translate-y-1" />
         <a href="https://github.com/he3-app/tools-example/tree/main/batch-json">
           <i class="fi fi-rr-cloud-share text-2xl"></i>
@@ -28,7 +28,9 @@
       </div>
     </div>
     <!-- page-content -->
-    <div class="flex justify-between h-full w-full">
+    <div
+      class="flex justify-center h-[80%] w-[50%] py-1 absolute right-[25%] translate-y-14"
+    >
       <!-- page-tool -->
       <div class="h-full bg-white rounded-lg border bordered-gray-400 w-full">
         <!-- tool-title -->

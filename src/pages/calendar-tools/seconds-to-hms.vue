@@ -1,43 +1,47 @@
 <template>
-  <div class="h-full w-full ml-24">
-    <!-- page-title-->
-    <SecondaryPageTitleVue :headTitle="headTitle"></SecondaryPageTitleVue>
+  <div class="h-screen w-full ml-24 relative container bg-slate-100">
+    <SecondaryPageTitleVue
+      :headTitle="headTitle"
+      class="absolute pt-14"
+    ></SecondaryPageTitleVue>
     <!-- page-content -->
-    <div class="flex justify-between h-full w-full">
+    <div class="flex justify-center h-[80%] w-full relative py-4">
       <!-- page-tool -->
-      <div class="h-full bg-white rounded-lg border bordered-gray-400 w-full">
-        <!-- 秒输入框 -->
+      <div
+        class="h-full bg-white rounded-2xl border bordered-gray-400 w-[43%] absolute left-[23%]"
+      >
+        <!-- 时分秒输入框 -->
         <div class="flex justify-center items-center h-56">
-          <div class="text-gray-900 text-2xl mr-2">请输入秒:</div>
+          <div class="text-gray-900 text-2xl">耗时：</div>
           <input
             type="text"
             placeholder="Please add the time."
             class="rounded-lg border border-gray-900 h-10 w-96"
-            v-model="secondsInput"
-            @input="turnToTime"
+            @input="handleTimeInput()"
+            v-model="timeInput"
           />
         </div>
-        <!-- 时输入框 -->
+        <!-- 秒输入框 -->
         <div class="flex justify-center items-center">
-          <div class="text-gray-900 text-2xl">时间：</div>
+          <div class="text-gray-900 text-2xl">秒：</div>
           <input
             type="text"
             placeholder="Please add the second."
             class="rounded-lg border border-gray-900 h-10 w-96"
-            v-model="timeInput"
+            v-model="secondInput"
           />
         </div>
       </div>
       <!-- page-nav -->
-      <div class="ml-5 w-1/4">
-        <!-- SecondarySideBarMenu -->
+      <div class="ml-5 w-60 absolute right-[24%]">
+        <!-- SideBarMenu -->
         <SecondarySideBarMenu
           :sideBarData="sideBarData"
           :titleData="titleData"
         ></SecondarySideBarMenu>
         <br />
-        <!-- nav-bottom -->
-        <div class="h-[15%] bg-slate-200 rounded-lg border bordered-gray-400">
+        <!-- introduction -->
+        <div class="h-[15%]  rounded-lg border bordered-gray-400 side-nav">
           <!-- top -->
           <div
             class="h-10 text-gray-400 text-sm border-b-2 border-slate-300 flex justify-center items-center"
@@ -70,27 +74,34 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
 import SecondarySideBarMenu from "@/components/secondary-sidebar.vue";
+import { defineComponent } from "vue";
 import SecondaryPageTitleVue from "@/components/secondary-header.vue";
+
 export default defineComponent({
-  name: "turn-time",
+  name: "TurnSecond",
   components: {
     SecondarySideBarMenu,
     SecondaryPageTitleVue,
   },
   data() {
     return {
-      secondsInput: 0,
       timeInput: "",
+      secondInput: "",
     };
   },
   methods: {
-    turnToTime() {
-      const seconds = this.secondsInput % 60;
-      const minutes = Math.floor(this.secondsInput / 60) % 60;
-      const hours = Math.floor(this.secondsInput / 3600);
-      this.timeInput = `${hours}:${minutes}:${seconds}`;
+    handleTimeInput(): void {
+      const timeStr: string = this.timeInput;
+      const timeRegex = /^(\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+      if (!timeRegex.test(timeStr)) {
+        return;
+      }
+      const [hours, minutes, seconds]: number[] = timeStr
+        .split(":")
+        .map(Number);
+      const totalSeconds: number = hours * 3600 + minutes * 60 + seconds;
+      this.secondInput = totalSeconds.toString();
     },
   },
   setup() {
@@ -109,8 +120,17 @@ export default defineComponent({
       { name: "UTC时间转时间戳", path: "/utc-time-to-timestamp" },
     ];
     const titleData = "JSON";
-    const headTitle = "秒转时:分:秒";
+    const headTitle = "时:分秒转秒工具";
     return { sideBarData, titleData, headTitle };
   },
 });
 </script>
+<style>
+.side-nav{
+  background-color: #E3EBF2;
+}
+
+
+
+
+</style>

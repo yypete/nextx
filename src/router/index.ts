@@ -14,7 +14,7 @@ const calendarPages = require.context(
 calendarPages.keys().forEach((fileName) => {
   const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
   routes.push({
-    path: `/${pagesPath}`,
+    path: `/home/extension/${pagesPath}`,
     component: () => import(`@/pages/calendar-tools/${pagesPath}.vue`),
   });
 });
@@ -27,7 +27,7 @@ const decryptPages = require.context(
 decryptPages.keys().forEach((fileName) => {
   const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
   routes.push({
-    path: `/${pagesPath}`,
+    path: `/home/extension/${pagesPath}`,
     component: () => import(`@/pages/decrypt-tools/${pagesPath}.vue`),
   });
 });

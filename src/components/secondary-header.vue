@@ -1,16 +1,18 @@
 <template>
   <!-- page-title-->
-  <header class="bg-slate-100 flex items-center justify-between pb-4">
+  <header
+    class="bg-slate-100 flex items-center justify-between w-full relative pt-10"
+  >
     <!-- left-title -->
-    <div class="flex space-x-4">
-      <div class="text-4xl text-slate-900">{{headTitle}}</div>
+    <div class="flex space-x-4 absolute left-[24%] pb-12">
+      <div class="text-4xl text-slate-900">{{ headTitle }}</div>
       <i
         class="fi fi-rr-star hover:rotate-180 transition-transform transform-gpu text-2xl translate-y-2"
       ></i>
       <i class="fi fi-sr-comment text-2xl translate-y-2"></i>
     </div>
     <!-- right-title-->
-    <div class="flex space-x-3 mt-3">
+    <div class="flex space-x-3 mt-3 absolute right-[22%] pb-11">
       <img src="@/assets/logo.png" class="w-10 h-6 translate-y-1" />
       <a href="https://github.com/he3-app/tools-example/tree/main/batch-json">
         <i class="fi fi-rr-cloud-share text-2xl"></i>
@@ -33,9 +35,9 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "SecondaryPageTitle",
   props: {
-    headTitle:{
+    headTitle: {
       type: String,
-    }
+    },
   },
 });
 </script>

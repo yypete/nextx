@@ -1,10 +1,15 @@
 <template>
-  <div class="h-full w-full ml-24">
-    <SecondaryPageTitleVue :headTitle="headTitle"></SecondaryPageTitleVue>
+  <div class="h-screen w-full ml-24 relative container bg-slate-100">
+    <SecondaryPageTitleVue
+      :headTitle="headTitle"
+      class="absolute pt-14"
+    ></SecondaryPageTitleVue>
     <!-- page-content -->
-    <div class="flex justify-between h-full w-full">
+    <div class="flex justify-center h-[80%] w-full relative py-4">
       <!-- page-tool -->
-      <div class="h-full bg-white rounded-lg border bordered-gray-400 w-full">
+      <div
+        class="h-full bg-white rounded-2xl border bordered-gray-400 w-[43%] absolute left-[23%]"
+      >
         <!-- 时分秒输入框 -->
         <div class="flex justify-center items-center h-56">
           <div class="text-gray-900 text-2xl">耗时：</div>
@@ -28,7 +33,7 @@
         </div>
       </div>
       <!-- page-nav -->
-      <div class="ml-5 w-1/4">
+      <div class="ml-5 w-60 absolute right-[24%]">
         <!-- SideBarMenu -->
         <SecondarySideBarMenu
           :sideBarData="sideBarData"
@@ -36,7 +41,7 @@
         ></SecondarySideBarMenu>
         <br />
         <!-- introduction -->
-        <div class="h-[15%] bg-slate-200 rounded-lg border bordered-gray-400">
+        <div class="h-[15%]  rounded-lg border bordered-gray-400 side-nav">
           <!-- top -->
           <div
             class="h-10 text-gray-400 text-sm border-b-2 border-slate-300 flex justify-center items-center"
@@ -115,9 +120,17 @@ export default defineComponent({
       { name: "UTC时间转时间戳", path: "/utc-time-to-timestamp" },
     ];
     const titleData = "JSON";
-    const headTitle='时:分秒转秒工具'
-    return { sideBarData, titleData, headTitle};
+    const headTitle = "时:分秒转秒工具";
+    return { sideBarData, titleData, headTitle };
   },
 });
 </script>
-<style></style>
+<style>
+.side-nav{
+  background-color: #E3EBF2;
+}
+
+
+
+
+</style>

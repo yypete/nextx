@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
-    <defaultLayout />
+  <div>
+    <defaultLayout/>
   </div>
 </template>
 <script lang="ts">
+import defaultLayout from './layouts/default-layout.vue';
 
-import defaultLayout from "./layouts/default-layout.vue";
 
 export default {
   name: "homeApp",
   components: {
-    defaultLayout,
+  defaultLayout
   },
 };
 </script>

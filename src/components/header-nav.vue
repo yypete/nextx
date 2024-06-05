@@ -3,7 +3,7 @@
     <!-- 顶部搜索栏 -->
     <nav
       class="search-nav flex items-center justify-center px-3 py-4 h-24 relative space-x-6 bg-white z-50"
-      :class="{ 'bg-slate-300': bgChange }"
+      :class="{ 'bg-gray-200': bgChange }"
     >
       <!-- logo图标 -->
       <a href="/">
@@ -17,7 +17,7 @@
       <input
         type="text"
         class="search-input bg-slate-200 w-[45%] h-14 rounded-lg border border-gray-200 placeholder:text-gray-400 text-lg"
-        placeholder="          输入关键字或自然语音进行搜索..."
+        placeholder="            输入关键字或自然语音进行搜索..."
         @click="inputFocused"
         v-show="!bgChange"
       />
