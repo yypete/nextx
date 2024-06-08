@@ -7,25 +7,36 @@
     <div class="flex space-x-4 absolute left-[24%] pb-12">
       <div class="text-4xl text-slate-900">{{ headTitle }}</div>
       <i
-        class="fi fi-rr-star hover:rotate-180 transition-transform transform-gpu text-2xl translate-y-2"
+        class="fi fi-rr-star hover:rotate-270 transition-transform transform-gpu text-2xl absolute left-[70%] top-[10%] pl-12 cursor-pointer"
       ></i>
-      <i class="fi fi-sr-comment text-2xl translate-y-2"></i>
+      <i
+        class="fi fi-sr-comment text-2xl absolute left-[90%] top-[10%] pl-10 cursor-pointer"
+      ></i>
     </div>
     <!-- right-title-->
-    <div class="flex space-x-3 mt-3 absolute right-[22%] pb-11">
-      <img src="@/assets/logo.png" class="w-10 h-6 translate-y-1" />
-      <a href="https://github.com/he3-app/tools-example/tree/main/batch-json">
-        <i class="fi fi-rr-cloud-share text-2xl"></i>
-      </a>
-      <a href="#">
-        <i class="fi fi-tr-tally-1 text-2xl pl-2"></i>
-      </a>
-      <a href="#">
-        <i class="fi fi-brands-acrobat text-2xl"></i>
-      </a>
-      <a href="#">
-        <i class="fi fi-brands-illustrator-draw text-2xl"></i>
-      </a>
+    <div class="flex space-x-3 mt-3 absolute right-[22%] pb-12">
+      <div class="flex items-center relative justify-center">
+        <img
+          src="@/assets/logo.png"
+          class="w-10 h-6 cursor-pointer -translate-x-56 translate-y-3.5"
+        />
+        <a href="https://github.com/he3-app/tools-example/tree/main/batch-json">
+          <i class="fi fi-rr-cloud-share text-2xl absolute right-48"></i>
+        </a>
+        <a href="#">
+          <i
+            class="fi fi-tr-tally-1 text-2xl text-gray-600 absolute right-36"
+          ></i>
+        </a>
+        <a href="#">
+          <i class="fi fi-brands-acrobat text-2xl absolute right-32"></i>
+        </a>
+        <a href="#">
+          <i
+            class="fi fi-brands-illustrator-draw text-2xl absolute right-24"
+          ></i>
+        </a>
+      </div>
     </div>
   </header>
 </template>
@@ -41,3 +52,6 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+@import url("https://cdn-uicons.flaticon.com/2.4.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+</style>

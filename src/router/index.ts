@@ -32,6 +32,22 @@ decryptPages.keys().forEach((fileName) => {
   });
 });
 
+// pic routing configuration
+const picPages = require.context(
+  "@/pages/picture-tools/",
+  true,
+  /\/[a-zA-Z0-9-]+\.vue$/
+);
+picPages.keys().forEach((fileName) => {
+  const pagesPath = fileName.split("/").pop()?.replace(".vue", "");
+  routes.push({
+    path: `/home/extension/${pagesPath}`,
+    component: () => import(`@/pages/picture-tools/${pagesPath}.vue`),
+  });
+});
+
+
+
 routes.push(
   { path: "/home/category", component: categoryTool },
   { path: "/home/star", component: starTool },
