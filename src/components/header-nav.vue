@@ -61,7 +61,6 @@
             class="free-badge w-10 h-6 absolute top-10 translate-x-3"
           />
           <!-- 下拉菜单 -->
-
           <hoverAccount
             v-if="showHoverAccount"
             class="absolute top-full"

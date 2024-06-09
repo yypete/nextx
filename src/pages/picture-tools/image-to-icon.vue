@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-full ml-24 relative container bg-slate-100">
+  <div class="h-screen w-full relative bg-slate-100">
     <!-- page-title -->
     <SecondaryPageTitleVue
       :headTitle="headTitle"
@@ -524,7 +524,6 @@ export default defineComponent({
         });
       }
     };
-
     // 点击图片上传功能
     const img = new Image();
     const imageUpload = (event: Event) => {

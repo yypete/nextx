@@ -51,11 +51,8 @@ export default {
   border-image: linear-gradient(to bottom, #0000ff, #008000) 1;
 }
 .gradient-text {
-  /* 设置字体颜色为透明 */
   color: transparent;
-  /* 设置背景渐变 */
   background: linear-gradient(to bottom, #0000ff, #008000);
-  /* 裁剪背景到文本 */
   -webkit-background-clip: text;
   background-clip: text;
   /* 确保渐变背景显示在文本下方 */
