@@ -1,12 +1,14 @@
 <template>
-  <div class="flex w-full relative h-screen bg-slate-100">
-    <aside class="absolute left-1/4 -translate-x-14">
-      <sidebarMenuVue @selectTools="selectTools"></sidebarMenuVue>
-    </aside>
-    <main class="absolute right-1/4 translate-x-32 w-[50%]">
-      <ToolTable :tableData="tableData"></ToolTable>
-    </main>
-  </div>
+  <main class="flex w-screen relative h-bg bg-slate-100 justify-center">
+    <div class="flex justify-between w-category">
+      <div class="left-menu">
+        <sidebarMenuVue @selectTools="selectTools"></sidebarMenuVue>
+      </div>
+      <div class="right-category">
+        <ToolTable :tableData="tableData"></ToolTable>
+      </div>
+    </div>
+  </main>
 </template>
 <script lang="ts">
 import ToolTable from "@/components/tools-table.vue";
@@ -923,19 +925,37 @@ export default {
       { name: "JSON转XML", path: "/home/extension/json-to-xml" },
       { name: "JSON 反转义", path: "/home/extension/json-unescape" },
       { name: "JSON 转义", path: "/home/extension/json-escape" },
-      { name: "JSON到Objective-C接口", path: "/home/extension/json-to-objective-c-interface" },
+      {
+        name: "JSON到Objective-C接口",
+        path: "/home/extension/json-to-objective-c-interface",
+      },
       { name: "JSoN转Zod Schema", path: "/home/extension/json-to-zod-schema" },
       { name: "JSON转EIm模块", path: "/home/extension/json-to-eim-module" },
-      { name: "JSON转Crystal类", path: "/home/extension/json-to-crystal-class" },
+      {
+        name: "JSON转Crystal类",
+        path: "/home/extension/json-to-crystal-class",
+      },
       { name: "JSON转TOML", path: "/home/extension/json-to-toml" },
       { name: "提取JSON值", path: "/home/extension/extract-json-value" },
       { name: "JSON转RUst结构体", path: "/home/extension/json-to-rust-struct" },
       { name: "JSON转Dart类", path: "/home/extension/json-to-dart-class" },
-      { name: "JSON转Swift结构体", path: "/home/extension/json-to-swift-struct" },
+      {
+        name: "JSON转Swift结构体",
+        path: "/home/extension/json-to-swift-struct",
+      },
       { name: "JSON查看器", path: "/home/extension/json-viewer" },
-      { name: "JSON转Haskell模块", path: "/home/extension/json-to-haskell-module" },
-      { name: "JSON转TypeScript接口", path: "/home/extension/json-to-typescript-interface" },
-      { name: "JSON转Big Query模式", path: "/home/extension/json-to-bigquery-schema" },
+      {
+        name: "JSON转Haskell模块",
+        path: "/home/extension/json-to-haskell-module",
+      },
+      {
+        name: "JSON转TypeScript接口",
+        path: "/home/extension/json-to-typescript-interface",
+      },
+      {
+        name: "JSON转Big Query模式",
+        path: "/home/extension/json-to-bigquery-schema",
+      },
       { name: "JSON生成器", path: "/home/extension/json-generator" },
       { name: "JSON转PHP", path: "/home/extension/json-to-php" },
       { name: "JSON转SQL模式", path: "/home/extension/json-to-sql-schema" },

@@ -1,10 +1,8 @@
 <template>
-  <!-- page-title-->
-  <header
-    class="bg-slate-100 flex items-center justify-between w-full relative pt-10"
+  <div
+    class="page-title bg-slate-100 flex items-center justify-between w-full relative pt-10"
   >
-    <!-- left-title -->
-    <div class="flex space-x-4 absolute left-[24%] pb-12">
+    <div class="left-title flex space-x-4 absolute left-[24%] pb-12">
       <div class="text-4xl text-slate-900">{{ headTitle }}</div>
       <i
         class="fi fi-rr-star hover:rotate-270 transition-transform transform-gpu text-2xl absolute left-[70%] top-[10%] pl-12 cursor-pointer"
@@ -13,8 +11,7 @@
         class="fi fi-sr-comment text-2xl absolute left-[90%] top-[10%] pl-10 cursor-pointer"
       ></i>
     </div>
-    <!-- right-title-->
-    <div class="flex space-x-3 mt-3 absolute right-[22%] pb-12">
+    <div class="right-title flex space-x-3 mt-3 absolute right-[22%] pb-12">
       <div class="flex items-center relative justify-center">
         <img
           src="@/assets/logo.png"
@@ -38,7 +35,7 @@
         </a>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

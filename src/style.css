@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3rem;
+  height: 2.5rem;
 }
 .item-box:hover {
   background-color: #cbd5e1;

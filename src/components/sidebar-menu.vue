@@ -1,18 +1,20 @@
 <template>
-  <div class="sidebar-menu bg-white w-44 py-2 px-2 rounded-lg">
+  <div class="sidebar-menu bg-white w-48 py-2 rounded-lg h-sidebar">
     <button
       v-for="tool in tools"
       :key="tool.value"
-      @click="handleSelect(tool.value) " 
-      class="flex items-center justify-between relative py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg w-36 h-12"
+      @click="handleSelect(tool.value)"
+      class="flex items-center justify-between relative py-3 focus:bg-slate-200 focus:rounded-lg hover:bg-slate-200 hover:rounded-lg w-32 h-10 ml-3"
       :class="[
-        'flex items-center justify-between relative py-3 w-36 h-12',
-        tool.value === selectedTool ? 'bg-slate-200 rounded-lg' : 'hover:bg-slate-200 hover:rounded-lg'
+        'flex items-center justify-between relative py-3 w-44 h-10',
+        tool.value === selectedTool
+          ? 'bg-slate-200 rounded-lg'
+          : 'hover:bg-slate-200 hover:rounded-lg',
       ]"
     >
-      <i :class="tool.icon" class="absolute top-3.5 left-4 text-sm"></i>
+      <i :class="tool.icon" class="absolute top-2.5 left-4 text-sm"></i>
       <span class="menu-text translate-x-10 text-sm">{{ tool.label }}</span>
-      <i class="arrow-icon fi fi-ss-angle-small-right absolute left-28"></i>
+      <i class="arrow-icon fi fi-ss-angle-small-right absolute left-36"></i>
     </button>
   </div>
 </template>
@@ -44,8 +46,7 @@ export default defineComponent({
       selectedTool.value = toolName;
       emit("select-tools", toolName);
     }
-    return { handleSelect, tools,selectedTool };
+    return { handleSelect, tools, selectedTool };
   },
-
 });
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <main class="bg-white rounded-lg px-4 w-full py-4">
+  <div class="bg-white rounded-lg px-4 py-4 w-table">
     <table class="table w-full">
       <tr
-        class="w-full flex text-center space-x-1 items-center h-14"
+        class="flex text-center space-x-2 items-center pb-2"
         v-for="(item, itemIndex) in chunksData"
         :key="itemIndex"
       >
-        <td class="w-1/3">
+        <td class="w-tools h-10">
           <router-link :to="item[0].path">
             <a href="#" class="item-box">
-              <div class="text-slate-600 text-sm pl-2">{{ item[0].name }}</div>
+              <div class="text-slate-600 text-sm pl-4">{{ item[0].name }}</div>
               <div class="flex items-center space-x-1 pr-2">
                 <i class="fi fi-rr-star"></i>
                 <i class="fi fi-rr-menu-dots"></i>
@@ -17,7 +17,7 @@
             </a>
           </router-link>
         </td>
-        <td class="w-1/3">
+        <td class="w-tools h-10">
           <router-link :to="item[1].path">
             <a href="#" class="item-box">
               <div class="text-slate-600 text-sm pl-2">{{ item[1].name }}</div>
@@ -28,7 +28,7 @@
             </a>
           </router-link>
         </td>
-        <td class="w-1/3">
+        <td class="w-tools h-10">
           <router-link :to="item[2].path">
             <a href="#" class="item-box">
               <div class="text-slate-600 text-sm pl-2">{{ item[2].name }}</div>
@@ -41,7 +41,7 @@
         </td>
       </tr>
     </table>
-  </main>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from "vue";

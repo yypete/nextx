@@ -1,12 +1,8 @@
 <!-- defaultLayout.vue -->
 <template>
-  <div>
-    <header>
-      <headerNav class="z-50"></headerNav>
-    </header>
-    <main>
-      <router-view class="z-40"></router-view>
-    </main>
+  <div class="h-screen bg-slate-100 ">
+    <headerNav headerNav class="z-50"></headerNav>
+    <router-view class="z--50"></router-view>
   </div>
 </template>
 

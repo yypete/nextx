@@ -1,15 +1,12 @@
 <template>
-  <div class="h-screen w-full relative bg-slate-100">
-    <!-- page-title -->
+  <main class="h-screen w-full relative bg-slate-100">
     <SecondaryPageTitleVue
       :headTitle="headTitle"
       class="absolute pt-14"
     ></SecondaryPageTitleVue>
-    <!-- page-content -->
-    <div class="flex h-[80%] w-full relative py-4">
-      <!-- page-tool -->
+    <div class="page-content flex h-[80%] w-full relative py-4">
       <div
-        class="w-[42%] h-full bg-white border border-gray-200 rounded-3xl absolute right-[34%]"
+        class="left-tool w-[42%] h-full bg-white border border-gray-200 rounded-3xl absolute right-[34%]"
       >
         <div class="flex relative justify-between w-full h-full px-10 py-10">
           <!-- left-download -->
@@ -293,8 +290,7 @@
           </div>
         </div>
       </div>
-      <!-- page-nav -->
-      <div class="ml-5 w-60 absolute right-[24%]">
+      <div class="right-menu ml-5 w-60 absolute right-[24%]">
         <!-- SideBarMenu -->
         <SecondarySideBarMenu
           :sideBarData="sideBarData"
@@ -332,7 +328,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 <script lang="ts">
 import SecondarySideBarMenu from "@/components/secondary-sidebar.vue";
@@ -348,10 +344,6 @@ interface Item {
   content: string;
   selected: boolean;
 }
-interface FileEvent {
-  target: { files: FileList };
-}
-
 export default defineComponent({
   name: "imageToIcon",
   components: {
