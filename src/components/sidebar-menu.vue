@@ -1,5 +1,7 @@
 <template>
-  <div class="sidebar-menu bg-white w-48 py-2 rounded-lg h-sidebar">
+  <div
+    class="sidebar-menu bg-white w-48 py-2 rounded-lg h-sidebar text-gray-600"
+  >
     <button
       v-for="tool in tools"
       :key="tool.value"

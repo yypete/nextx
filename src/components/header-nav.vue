@@ -1,5 +1,5 @@
 <template>
-  <header class="header-container flex justify-center">
+  <header class="header-container flex justify-center sticky top-0">
     <div>
       <div class="w-screen bg-white flex justify-center">
         <!-- 顶部搜索栏 -->
@@ -12,25 +12,25 @@
             <img
               src="@/assets/logo.png"
               alt="logo"
-              class="logo-icon h-10 w-logo absolute left-28 top-5"
+              class="logo-icon h-10 w-logo absolute left-8 top-5"
             />
           </a>
           <!-- 输入框 -->
           <input
             type="text"
-            class="search-input bg-slate-200 w-input h-input rounded-lg border border-gray-200 placeholder:text-gray-400 text-palceholder"
+            class="search-input bg-slate-200 w-input h-input rounded-lg border border-gray-200 placeholder:text-gray-400 text-palceholder absolute left-24"
             placeholder="         输入关键字或自然语音进行搜索..."
             @click="inputFocused"
             v-show="!bgChange"
           />
           <!-- 放大镜 -->
           <i
-            class="search-icon fi fi-br-search absolute left-48 bottom-5 text-2xl text-gray-500"
+            class="search-icon fi fi-br-search absolute left-28 bottom-5 text-2xl text-gray-500"
             v-show="!bgChange"
           ></i>
           <!-- 快捷键提示 -->
           <div
-            class="shortcut-hint text-slate-400 absolute right-56"
+            class="shortcut-hint text-slate-400 absolute right-80"
             v-show="!bgChange"
           >
             Ctrl+K
@@ -42,7 +42,7 @@
           <!-- 下载App按钮 -->
           <a href="https://he3app.com/">
             <button
-              class="download-app-btn bg-slate-200 rounded-xl h-button w-28 text-slate-800 text-lg absolute top-3.5"
+              class="download-app-btn bg-slate-200 rounded-xl h-button w-28 text-slate-800 text-lg absolute top-3.5 right-28"
               v-show="!bgChange"
             >
               下载App

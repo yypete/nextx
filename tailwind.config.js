@@ -10,14 +10,17 @@ module.exports = {
         logo: "64px",
         head: "1400px",
         category: "1200px",
-        star:'970px'
+        star: "970px",
+        imageToIcon: "950px",
+        imageInput:'510px'
       },
       height: {
         bg: "1000px",
         sidebar: "600px",
         input: "50px",
         button: "52px",
-        mytool:'500px'
+        mytool: "500px",
+        imageToIcon:'80vh'
       },
       fontSize: {
         placeholder: "16px",
