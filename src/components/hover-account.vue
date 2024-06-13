@@ -15,16 +15,22 @@
           <div class="text-sm text-slate-400">
             <img
               src="@/assets/light.png"
-              class="px-2 py-2 w-16 h-16 hover:border  border-slate-800 hover:w-20 hover:h-20"
+              class="px-2 py-2 w-16 h-16 border-2 rounded-lg border-slate-800 transition-transform duration-300 transform hover:scale-110"
             />
             <div class="translate-x-3 py-1">Light</div>
           </div>
           <div class="text-sm text-slate-400">
-            <img src="@/assets/dark.png" class="px-2 py-2 w-16 h-16 hover:border  border-slate-800 hover:w-20 hover:h-20" />
+            <img
+              src="@/assets/dark.png"
+              class="px-2 py-2 w-16 h-16  rounded-lg border-slate-800 transition-transform duration-300 transform hover:scale-110"
+            />
             <div class="translate-x-3 py-1">Dark</div>
           </div>
           <div class="text-sm text-slate-400">
-            <img src="@/assets/system.png" class="px-2 py-2 w-16 h-16 hover:border  border-slate-800 hover:w-20 hover:h-20" />
+            <img
+              src="@/assets/system.png"
+              class="px-2 py-2 w-16 h-16  rounded-lg border-slate-800 transition-transform duration-300 transform hover:scale-110"
+            />
             <div class="translate-x-3 py-1">System</div>
           </div>
         </div>

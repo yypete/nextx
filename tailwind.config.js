@@ -12,7 +12,8 @@ module.exports = {
         category: "1200px",
         star: "970px",
         imageToIcon: "950px",
-        imageInput:'510px'
+        imageInput: "510px",
+        sidebarMenu: "220px",
       },
       height: {
         bg: "1000px",
@@ -20,7 +21,9 @@ module.exports = {
         input: "50px",
         button: "52px",
         mytool: "500px",
-        imageToIcon:'80vh'
+        imageToIcon: "65vh",
+        sidebarMenu: "50vh",
+        introduction: "65vh",
       },
       fontSize: {
         placeholder: "16px",

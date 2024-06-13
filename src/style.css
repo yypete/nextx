@@ -22,16 +22,8 @@
   background-color: #cbd5e1;
 }
 
-.fi-rr-star {
-  transition: transform 0.3s;
-  transform: perspective(1000px);
-}
-.fi-rr-star:hover {
-  transform: rotate(180deg);
-}
-.fi-rr-star:focus {
-  transform: rotate(180deg);
-}
+
+
 
 .nav-tool {
   height: 2rem;

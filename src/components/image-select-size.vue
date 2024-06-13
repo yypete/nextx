@@ -32,243 +32,63 @@
       <!-- 重选按钮 -->
       <button
         id="resetButton"
-        class="hidden absolute bottom-12 left-64 bg-gray-800 text-white px-3 py-1 rounded-2xl w-20 text-sm flex items-center"
+        class="absolute bottom-12 left-64 bg-gray-800 text-white px-3 py-1 rounded-2xl w-20 text-sm flex items-center"
         @click="resetImage"
       >
         <i class="fi fi-tr-rotate-square text-sm px-1 translate-y-0.5"></i>
         重选
       </button>
     </div>
-
     <!-- right-setting -->
     <div class="w-[40%] h-[90%] overflow-y-scroll">
-      <!-- iPhone -->
-      <div class="flex space-x-2 items-center pl-14 pt-2">
-        <span
-          class="cursor-pointer pt-2"
-          @click="rotageChange('iPhone')"
-          :class="{ 'transform rotate-90': rotated.iPhone }"
-          ><i class="fi fi-rr-caret-right text-xl"></i
-        ></span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            :checked="selectAll[0]"
-            @change="updateAll(0)"
-            name="device"
-          />
-        </label>
-        <span
-          class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
-          @click="toggleBgChange('iPhone')"
-          :class="{ 'bg-gray-600': bgChange.iPhone }"
-          >iPhone</span
-        >
-      </div>
-      <!-- hover-iPhone -->
-      <div class="items-center pl-28 pt-2" v-if="rotated.iPhone">
-        <div
-          class="flex"
-          v-for="(item, itemIndex) in inputData[0]"
-          :key="itemIndex"
-        >
+      <!-- 设备类型渲染 -->
+      <div v-for="(index, device) in devicesIndex" :key="device">
+        <!-- 设备类型标题 -->
+        <div class="flex space-x-2 items-center pl-14 pt-2">
+          <span
+            class="cursor-pointer pt-2"
+            @click="rotageChange(device)"
+            :class="{ 'transform rotate-90': rotated[device] }"
+          >
+            <i class="fi fi-rr-caret-right text-xl"></i>
+          </span>
           <label class="relative inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
               class="custom-checkbox"
-              :checked="item.selected"
-              @change="updateItem(itemIndex, 0)"
+              :checked="selectAll[index]"
+              @change="updateAll(index)"
+              name="device"
             />
           </label>
-          <div
-            class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
+          <span
+            class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
+            @click="toggleBgChange(device)"
+            :class="{ 'bg-gray-600': bgChange[device] }"
           >
-            {{ item.content }}
-          </div>
+            {{ device }}
+          </span>
         </div>
-      </div>
-      <!--iPad  -->
-      <div class="flex space-x-2 items-center pl-14 pt-2">
-        <span
-          class="cursor-pointer pt-2"
-          @click="rotageChange('iPad')"
-          :class="{ 'transform rotate-90': rotated.iPad }"
-          ><i class="fi fi-rr-caret-right text-xl"></i
-        ></span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            :checked="selectAll[1]"
-            @change="updateAll(1)"
-            name="device"
-          />
-        </label>
-        <span
-          class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
-          @click="toggleBgChange('iPad')"
-          :class="{ 'bg-gray-600': bgChange.iPad }"
-          >iPad</span
-        >
-      </div>
-      <!-- hover-iPad -->
-      <div class="items-center pl-28 pt-2" v-if="rotated.iPad">
-        <div
-          class="flex"
-          v-for="(item, itemIndex) in inputData[1]"
-          :key="itemIndex"
-        >
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              class="custom-checkbox"
-              :checked="item.selected"
-              @change="updateItem(itemIndex, 1)"
-            />
-          </label>
+        <!-- 悬停内容 -->
+        <div v-if="rotated[device]" class="items-center pl-28 pt-2">
           <div
-            class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
+            v-for="(item, itemIndex) in inputData[index]"
+            :key="itemIndex"
+            class="flex"
           >
-            {{ item.content }}
-          </div>
-        </div>
-      </div>
-      <!-- macOS -->
-      <div class="flex space-x-2 items-center pl-14 pt-2">
-        <span
-          class="cursor-pointer pt-2"
-          @click="rotageChange('macOS')"
-          :class="{ 'transform rotate-90': rotated.macOS }"
-          ><i class="fi fi-rr-caret-right text-xl"></i
-        ></span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            :checked="selectAll[2]"
-            @change="updateAll(2)"
-            name="device"
-          />
-        </label>
-        <span
-          class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
-          @click="toggleBgChange('macOS')"
-          :class="{ 'bg-gray-600': bgChange.macOS }"
-          >macOS</span
-        >
-      </div>
-      <!-- hover-macOS -->
-      <div class="items-center pl-28 pt-2" v-if="rotated.macOS">
-        <div
-          class="flex"
-          v-for="(item, itemIndex) in inputData[2]"
-          :key="itemIndex"
-        >
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              class="custom-checkbox"
-              :checked="item.selected"
-              @change="updateItem(itemIndex, 2)"
-            />
-          </label>
-          <div
-            class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
-          >
-            {{ item.content }}
-          </div>
-        </div>
-      </div>
-      <!-- watch-OS -->
-      <div class="flex space-x-2 items-center pl-14 pt-2">
-        <span
-          class="cursor-pointer pt-2"
-          @click="rotageChange('watchOS')"
-          :class="{ 'transform rotate-90': rotated.watchOS }"
-          ><i class="fi fi-rr-caret-right text-xl"></i
-        ></span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            :checked="selectAll[3]"
-            @change="updateAll(3)"
-            name="device"
-          />
-        </label>
-        <span
-          class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
-          @click="toggleBgChange('watchOS')"
-          :class="{ 'bg-gray-600': bgChange.watchOS }"
-          >watchOS</span
-        >
-      </div>
-      <!-- hover-watchOS -->
-      <div class="items-center pl-28 pt-2" v-if="rotated.watchOS">
-        <div
-          class="flex"
-          v-for="(item, itemIndex) in inputData[3]"
-          :key="itemIndex"
-        >
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              class="custom-checkbox"
-              :checked="item.selected"
-              @change="updateItem(itemIndex, 3)"
-            />
-          </label>
-          <div
-            class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
-          >
-            {{ item.content }}
-          </div>
-        </div>
-      </div>
-      <!-- Android -->
-      <div class="flex space-x-2 items-center pl-14 pt-2">
-        <span
-          class="cursor-pointer pt-2"
-          @click="rotageChange('Android')"
-          :class="{ 'transform rotate-90': rotated.Android }"
-          ><i class="fi fi-rr-caret-right text-xl"></i
-        ></span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            :checked="selectAll[4]"
-            @change="updateAll(4)"
-            name="device"
-          />
-        </label>
-        <span
-          class="text-lg text-gray-700 font-mono hover:bg-gray-400 cursor-pointer"
-          @click="toggleBgChange('Android')"
-          :class="{ 'bg-gray-600': bgChange.Android }"
-          >Android</span
-        >
-      </div>
-      <!-- hover-Android -->
-      <div class="items-center pl-28 pt-2" v-if="rotated.Android">
-        <div
-          class="flex"
-          v-for="(item, itemIndex) in inputData[4]"
-          :key="itemIndex"
-        >
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              class="custom-checkbox"
-              :checked="item.selected"
-              @change="updateItem(itemIndex, 4)"
-            />
-          </label>
-          <div
-            class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
-          >
-            {{ item.content }}
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                class="custom-checkbox"
+                :checked="item.selected"
+                @change="updateItem(itemIndex, index)"
+              />
+            </label>
+            <div
+              class="text-lg font-mono ml-3 text-gray-600 hover:bg-slate-300 cursor-pointer"
+            >
+              {{ item.content }}
+            </div>
           </div>
         </div>
       </div>
@@ -293,11 +113,12 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ref, Ref } from "vue";
 import JSZip from "jszip";
-import { imageSize } from "@/config";
+import data from "@/config";
 
 interface BgChange {
   [key: string]: boolean;
@@ -323,7 +144,7 @@ export default defineComponent({
       watchOS: false,
       Android: false,
     });
-    const devicesIndex: { [key: string]: number } = {
+    const devicesIndex: Record<string, number> = {
       iPhone: 0,
       iPad: 1,
       macOS: 2,
@@ -336,6 +157,7 @@ export default defineComponent({
       dataURLs: string[];
       fileNames: string[];
     }
+
     // 复选框背景颜色改变
     function toggleBgChange(item: string) {
       bgChange.value[item] = !bgChange.value[item];
@@ -348,7 +170,7 @@ export default defineComponent({
     // 全选model
     const selectAll = ref([false, false]);
     // 尺寸渲染数据
-    const inputData: Ref<Item[][]> = ref(imageSize);
+    const inputData: Ref<Item[][]> = ref(data.imageSize);
     // 改变单个复选框选中功能、保持全选功能
     const updateItem = (itemindex: number, index: number) => {
       inputData.value[index][itemindex].selected =
@@ -463,7 +285,6 @@ export default defineComponent({
           ctx.drawImage(img, 0, 0, width, height);
           const dataURL = canvas.toDataURL("image/png");
           iconData.dataURLs.push(dataURL);
-          // 使用 fileName 和 size 来创建每个图标文件的名称
           iconData.fileNames.push(`${fileName}-${size}.png`);
         });
       }
@@ -501,28 +322,34 @@ export default defineComponent({
         });
       }
     };
-    // 点击按钮下载图标
-    const convertToIcon = () => {
-      const userFileName = (
+    const convertToIcon = (): void => {
+      // 获取用户输入的文件名
+      const userFileName: string = (
         document.getElementById("fileName") as HTMLInputElement
       ).value;
       const allIconData: IconObject[] = [];
-      Object.keys(rotated.value).forEach((deviceType) => {
-        if (rotated.value[deviceType]) {
-          const selectedSizes = inputData.value[devicesIndex[deviceType]]
-            .filter((item) => item.selected)
-            .map((item) => item.content);
-          if (selectedSizes.length > 0) {
-            const iconData = generateIcons(
-              img,
-              selectedSizes,
-              deviceType,
-              userFileName
-            );
-            allIconData.push(iconData);
-          }
+      const selectedDeviceIndices: number[] = [];
+      for (let i = 0; i < selectAll.value.length; i++) {
+        if (selectAll.value[i]) {
+          selectedDeviceIndices.push(i);
+        }
+      }
+      selectedDeviceIndices.forEach((index: number) => {
+        const deviceType: string = Object.keys(devicesIndex)[index];
+        const selectedSizes: string[] = inputData.value[index]
+          .filter((item: Item) => item.selected)
+          .map((item: Item) => item.content);
+        if (selectedSizes.length > 0) {
+          const iconData = generateIcons(
+            img,
+            selectedSizes,
+            deviceType,
+            userFileName
+          );
+          allIconData.push(iconData);
         }
       });
+      // 下载所有生成的图标
       downloadIconsAsZip(allIconData);
     };
 
@@ -541,6 +368,7 @@ export default defineComponent({
       handleDragOver,
       handleDrop,
       resetImage,
+      devicesIndex,
     };
   },
 });
@@ -552,4 +380,5 @@ export default defineComponent({
 div::-webkit-scrollbar {
   display: none;
 }
+@import url('https://cdn-uicons.flaticon.com/2.4.0/uicons-thin-rounded/css/uicons-thin-rounded.css')
 </style>

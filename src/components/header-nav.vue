@@ -1,10 +1,11 @@
 <template>
-  <header class="header-container flex justify-center sticky top-0">
+  <header
+    class="header-container flex justify-center sticky top-0 w-screen bg-white"
+  >
     <div>
-      <div class="w-screen bg-white flex justify-center">
-        <!-- 顶部搜索栏 -->
-        <nav
-          class="search-nav flex items-center justify-center px-3 py-4 h-20 relative space-x-6 bg-white z-50 w-head"
+      <div class="bg-white flex justify-center">
+        <div
+          class="nav flex items-center justify-center px-3 py-4 h-20 relative space-x-6 bg-white z-50"
           :class="{ 'bg-gray-200': bgChange }"
         >
           <!-- logo图标 -->
@@ -37,7 +38,7 @@
           </div>
           <hoverSearch
             v-if="bgChange"
-            class="absolute top-14 right-[28%] search-input"
+            class="absolute top-16 right-10 search-input"
           ></hoverSearch>
           <!-- 下载App按钮 -->
           <a href="https://he3app.com/">
@@ -79,7 +80,7 @@
               ></hoverAccount>
             </a>
           </div>
-        </nav>
+        </div>
       </div>
       <div class="w-screen bg-slate-100 flex justify-center">
         <div class="w-head translate-x-6">
@@ -245,5 +246,8 @@ export default defineComponent({
   transform: skew(-13deg);
   color: #fff;
   text-transform: capitalize;
+}
+.nav {
+  width: 1400px;
 }
 </style>

@@ -73,4 +73,12 @@ export default defineComponent({
   },
 });
 </script>
-<style></style>
+<style scoped>
+.fi-rr-star {
+  transition: transform 0.3s;
+  transform: perspective(1000px);
+}
+.fi-rr-star:hover {
+  transform: rotate(180deg);
+}
+</style>

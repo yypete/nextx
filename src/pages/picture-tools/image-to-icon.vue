@@ -1,28 +1,29 @@
 <template>
   <main class="flex justify-center">
     <div class="h-imageToIcon w-head relative bg-slate-100">
-      <SecondaryPageTitleVue
-        :headTitle="headTitle"
-        class="absolute justify-between"
-      ></SecondaryPageTitleVue>
+      <SecondaryPageTitleVue :headTitle="headTitle" />
       <div class="page-content flex h-full relative py-4">
         <div
           class="left-tool w-imageToIcon h-full bg-white border border-gray-200 rounded-3xl absolute left-10"
         >
           <imageSelectSize />
         </div>
-        <div class="right-menu ml-5 w-60 absolute right-32">
+        <div
+          class="right-menu ml-5 w-60 absolute right-32 h-introduction overflow-y-scroll"
+        >
           <!-- SideBarMenu -->
           <SecondarySideBarMenu
             :sideBarData="sideBarData"
             :titleData="titleData"
-          ></SecondarySideBarMenu>
+          />
           <br />
           <!-- introduction -->
-          <div class="h-[15%] rounded-lg border bordered-gray-400 side-nav">
+          <div
+            class="rounded-lg border bordered-gray-400 side-nav -translate-y-9 w-sidebarMenu"
+          >
             <!-- top -->
             <div
-              class="h-10 text-gray-400 text-sm border-b-2 border-slate-300 flex justify-center items-center"
+              class="text-gray-400 text-sm border-b-2 border-slate-300 flex justify-center items-center h-6"
             >
               <i class="fi fi-sr-rocket-lunch"></i>
               1.0.5
@@ -57,7 +58,7 @@ import SecondarySideBarMenu from "@/components/secondary-sidebar.vue";
 import { defineComponent } from "vue";
 import SecondaryPageTitleVue from "@/components/secondary-header.vue";
 import imageSelectSize from "@/components/image-select-size.vue";
-import { sideBarData } from "@/config";
+import data from "@/config";
 
 export default defineComponent({
   name: "imageToIcon",
@@ -67,12 +68,11 @@ export default defineComponent({
     imageSelectSize,
   },
   setup() {
-    const sideData = sideBarData;
+    const sideBarData = data.picData;
     const titleData = "图片";
     const headTitle = "图片转图标";
     return {
       sideBarData,
-      sideData,
       titleData,
       headTitle,
       imageSelectSize,
@@ -80,3 +80,8 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+</style>

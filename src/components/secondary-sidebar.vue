@@ -1,5 +1,7 @@
 <template>
-  <aside class="h-3/5 rounded-lg border bordered-gray-400 aside-nav">
+  <aside
+    class="h-sidebarMenu rounded-lg border bordered-gray-400 aside-nav overflow-y-auto w-sidebarMenu"
+  >
     <!-- secondary-nav-head-title -->
     <div
       class="h-10 text-gray-400 text-sm border-b-2 border-slate-300 flex items-center pl-4"
@@ -9,7 +11,7 @@
     </div>
     <!-- secondary-nav-head-content -->
     <div
-      class="w-full  text-sm text-slate-700"
+      class="w-full text-sm text-slate-700"
       v-for="(item, index) in sideBarData"
       :key="index"
     >
@@ -46,5 +48,8 @@ export default defineComponent({
 <style scoped>
 .aside-nav {
   background-color: #e3ebf2;
+}
+::-webkit-scrollbar {
+  width: 0 !important;
 }
 </style>
