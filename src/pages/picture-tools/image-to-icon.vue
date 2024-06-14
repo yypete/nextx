@@ -81,7 +81,5 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-::-webkit-scrollbar {
-  width: 0 !important;
-}
+
 </style>

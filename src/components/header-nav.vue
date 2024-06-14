@@ -3,10 +3,13 @@
     class="header-container flex justify-center sticky top-0 w-screen bg-white"
   >
     <div>
-      <div class="bg-white flex justify-center">
+      <div
+        class="bg-white flex justify-center"
+        :class="{ 'bg-gray-300': bgChange }"
+      >
         <div
           class="nav flex items-center justify-center px-3 py-4 h-20 relative space-x-6 bg-white z-50"
-          :class="{ 'bg-gray-200': bgChange }"
+          :class="{ 'bg-gray-300': bgChange }"
         >
           <!-- logo图标 -->
           <a href="/">

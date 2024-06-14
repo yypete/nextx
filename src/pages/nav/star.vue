@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen flex justify-center">
     <div class="w-head">
-      <div class="flex h-bg w-full bg-slate-100 relative justify-between">
+      <div class="flex h-bg w-head bg-slate-100 relative justify-between">
         <!-- 左侧收藏 -->
         <div
           class="h-16 bg-white w-48 flex items-center justify-center rounded-lg absolute left-1 translate-x-24"

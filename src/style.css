@@ -139,3 +139,12 @@
 .star img {
   cursor: pointer;
 }
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+mark {
+  background-color: transparent;
+  text-decoration: underline;
+  color: #1d4fda;
+  font-size: large;
+}

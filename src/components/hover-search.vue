@@ -25,22 +25,23 @@
       <ul>
         <li
           v-for="(result, index) in searchResults"
-          :key="index"
-          class="p-4 hover:bg-slate-100 cursor-pointer"
+          :key="result.path"
+          :class="{ 'bg-slate-200': index === 6 }"
+          class="p-4 cursor-pointer hover:bg-slate-100 rounded-lg"
           @click="navigateTo(result.path)"
         >
           <span v-html="highlightText(result.name)"></span>
         </li>
       </ul>
     </div>
-    <main class="border-b-2 border-gray-200 flex justify-center mt-4">
+    <div class="border-b-2 border-gray-200 flex justify-center mt-4">
       <div
         class="iconInput hover:bg-gray-100 my-5 flex items-center justify-center"
       >
         <i class="fi fi-rs-globe gradient-text px-3 pt-1 earth"></i>
         <div class="gradient-text">使用语义搜索</div>
       </div>
-    </main>
+    </div>
     <footer class="footer flex items-center justify-center mt-2 relative">
       <img src="../assets/bg.png" class="img h-6 absolute" />
     </footer>
@@ -104,6 +105,7 @@ export default defineComponent({
           item.name.toLowerCase().includes(query)
         );
       }
+      console.log("Search results:", searchResults.value);
     };
 
     const navigateTo = (path: string) => {
@@ -155,13 +157,8 @@ export default defineComponent({
   width: 1000px;
   max-height: 800px;
 }
-div::-webkit-scrollbar {
-  display: none;
-}
+
 .img {
   width: 1200px;
-}
-.mark{
-  color: #0000ff !important;
 }
 </style>
