@@ -22,9 +22,6 @@
   background-color: #cbd5e1;
 }
 
-
-
-
 .nav-tool {
   height: 2rem;
   width: 100%;
@@ -129,4 +126,16 @@
   color: white;
   font-size: 1rem;
   position: absolute;
+}
+.star {
+  position: relative;
+}
+
+.hover-spin:hover {
+  transform: rotate(360deg);
+  transition: transform 0.8s ease;
+}
+
+.star img {
+  cursor: pointer;
 }

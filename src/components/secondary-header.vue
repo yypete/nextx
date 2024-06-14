@@ -50,8 +50,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
+import Cookies from "js-cookie";
+import Dexie from "dexie";
 
+class StarDatabase extends Dexie {
+  settings: Dexie.Table<Setting, string>;
+  constructor() {
+    super("starDB");
+    this.version(1).stores({
+      settings: "name,value",
+    });
+    this.settings = this.table("settings");
+  }
+}
+interface Setting {
+  name: string;
+  value: boolean;
+}
+const db = new StarDatabase();
 export default defineComponent({
   name: "SecondaryPageTitle",
   props: {
@@ -63,10 +80,44 @@ export default defineComponent({
   setup() {
     const isStar2Visible = ref(false);
 
-    const toggleImage = () => {
+    const toggleImage = async () => {
       isStar2Visible.value = !isStar2Visible.value;
+      // local storage 这种方法 不会自动删除数据
+      localStorage.setItem(
+        "isStar2Visible",
+        JSON.stringify(isStar2Visible.value)
+      );
+      // session Storage 在关闭页面时删除数据
+      sessionStorage.setItem(
+        "isStar2Visible",
+        JSON.stringify(isStar2Visible.value)
+      );
+      // cookies  在数据过期后删除数据，可以设置过期时间
+      Cookies.set("isStar2Visible", JSON.stringify(isStar2Visible.value));
+      // indexDB 用于存储复杂大量的数据 不会自动删除
+      await db.settings.put({
+        name: "isStar2Visible",
+        value: isStar2Visible.value,
+      });
     };
-
+    onMounted(async () => {
+      const store1 = localStorage.getItem("isStar2Visible");
+      if (store1 !== null) {
+        isStar2Visible.value = JSON.parse(store1);
+      }
+      const store2 = sessionStorage.getItem("isStar2Visible");
+      if (store2 !== null) {
+        isStar2Visible.value = JSON.parse(store2);
+      }
+      const store3 = Cookies.get("isStar2Visible");
+      if (store3 !== undefined) {
+        isStar2Visible.value = JSON.parse(store3);
+      }
+      const store4 = await db.settings.get("isStar2Visible");
+      if (store4 !== undefined && store4 !== null) {
+        isStar2Visible.value = store4.value;
+      }
+    });
     return {
       isStar2Visible,
       toggleImage,
@@ -74,18 +125,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.star {
-  position: relative;
-}
-
-.hover-spin:hover {
-  transform: rotate(360deg);
-  transition: transform 0.8s ease;
-}
-
-.star img {
-  cursor: pointer;
-}
-</style>
